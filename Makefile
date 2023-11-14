@@ -2,13 +2,13 @@ NASM=arm-linux-gnueabi-as
 CC=arm-linux-gnueabi-gcc
 
 %.o: %.s
-	$(NASM) $< -o $@
+	$(NASM) -g $< -o $@
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) -c -g $< -o $@
 
 hw2: matmul.o hw2.o
-	$(CC) $^ -o $@
+	$(CC) $^ -g -o $@
 
 clean:
 	rm -f *.o
